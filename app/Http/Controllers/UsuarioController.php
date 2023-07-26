@@ -56,7 +56,7 @@ class UsuarioController extends Controller
         $usuario->apellido = $request->apellido;
         $usuario->usuario = $request->usuario;
         $usuario->contrasenia = $request->contrasenia;
-        $usuario->cimagen = $request->cimagen;
+        $usuario->imagen = $request->imagen;
         $usuario->update();
 
         return $usuario;

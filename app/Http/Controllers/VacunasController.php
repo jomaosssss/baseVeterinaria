@@ -42,7 +42,7 @@ class VacunasController extends Controller
             'nombre' => 'required',
             'lote' => 'required',
         ]);
-
+        
         $vacunas->nombre = $request->nombre;
         $vacunas->lote = $request->lote;
         $vacunas->update();

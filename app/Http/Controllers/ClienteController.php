@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\ClienteMail;
 use App\Models\Cliente;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class ClienteController extends Controller
 {
@@ -30,6 +32,10 @@ class ClienteController extends Controller
         $cliente->apellido = $request->apellido;
         $cliente->direccion = $request->direccion;
         $cliente->save();
+
+        foreach (['joma.ostgo@gmail.com'] as $recipient) {
+            Mail::to($recipient)->send(new ClienteMail());
+        }
 
         return $cliente;
     }
